@@ -1,0 +1,27 @@
+<!--Este archivo de configuración de launch se utiliza para ejecutar simultáneamente 
+dos simuladores de tortugas (turtlesim1 y turtlesim2) 
+y un nodo mimic que hace que la tortuga 1 en el simulador 2 siga a la tortuga 1 en el simulador 1.-->
+
+<launch>
+<!--Es la etiqueta que indica el inicio del archivo de configuración de launch.-->
+  <group ns="turtlesim1">
+<!--Esta es una etiqueta para agrupar los elementos relacionados con turtlesim1-->
+    <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+<!--Se define un nodo llamado sim, perteneciente al paquete turtlesim y tipo turtlesim_node. -->
+  </group>
+
+  <group ns="turtlesim2">
+    <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+  </group>
+
+  <node pkg="turtlesim" name="mimic" type="mimic">
+<!--Define un nodo que mueve a una tortuga (input) siguiendo a otra tortuga (output).-->
+    <remap from="input" to="turtlesim1/turtle1"/>
+    <remap from="output" to="turtlesim2/turtle1"/>
+<!--"input" to="turtlesim1/turtle1" y "output" to="turtlesim2/turtle1" 
+Redirigen las publicaciones y suscripciones de las entradas y salidas. 
+Estas dos líneas redirigen la tortuga (turtle1) del simulador de tortugas 1 (turtlesim1) 
+a la tortuga (turtle1) del simulador de tortugas 2 (turtlesim2).-->
+  </node>
+
+</launch><!--Es la etiqueta que indica el final del archivo de configuración de launch.-->

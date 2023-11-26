@@ -11,4 +11,29 @@
         required="true"
         launch-prefix="xterm -e"
     />
-</launch>
+</launch> <!--Esto marca el final del conjunto de nodos definidos-->
+
+
+<!--<node
+pkg="turtlesim"
+type="turtlesim_node"
+name="turtlesim"/>
+
+Esto define un nuevo nodo llamado "turtlesim". 
+El nodo está incluido en el paquete "turtlesim" y su tipo es "turtlesim_node". 
+Esto es esencialmente lo que inicia el simulador de tortugas. -->
+
+
+<!--<node pkg="turtlesim" 
+type="turtle_teleop_key" 
+name="teleop_key" 
+required="true" 
+launch-prefix="xterm -e"/> 
+
+Esto define otro nodo llamado "teleop_key". 
+El nodo está incluido en el paquete "turtlesim" y su tipo es "turtle_teleop_key". 
+Este nodo permite controlar a la tortuga usando teclas del teclado. 
+La propiedad required="true" indica que este nodo es esencial para que el sistema funcione correctamente. 
+La propiedad launch-prefix="xterm -e" 
+indica que este nodo se debe ejecutar en un terminal 
+separado (xterm) para permitir la entrada de teclas del teclado.-->

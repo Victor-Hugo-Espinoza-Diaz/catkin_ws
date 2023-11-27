@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   turtlesim
   message_generation
+  geometry_msgs # AGREMAS ESTAS DOS DEPENDENCIAS (geometry_msgs - turtlesim.)
+  #turtlesim     # DEL EJERCICIO 1.
 )
 
 ## System dependencies are found with CMake's conventions
@@ -246,3 +248,12 @@ add_dependencies(listener_custom_msg beginner_tutorials_generate_messages_cpp)
 
 #####################################################################
 
+# PARA EL (EJERCICIO 1) DEL PRACTICO 2 AGREGAMOS ESTOS DOS EJECUTABLES PARA :
+# -----------------------PARA EL NODO pubvel.cpp-----------------------------
+add_executable(pubvel src/pubvel.cpp)
+target_link_libraries(pubvel ${catkin_LIBRARIES})
+# -----------------------PARA EL NODO subpose.cpp-----------------------------
+add_executable(subpose src/subpose.cpp)
+target_link_libraries(subpose ${catkin_LIBRARIES})
+
+#####################################################################

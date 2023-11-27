@@ -3,6 +3,7 @@
         pkg="turtlesim"
         type="turtlesim_node"
         name="turtlesim"
+        respawn="true"
     />
     <node
         pkg="turtlesim"

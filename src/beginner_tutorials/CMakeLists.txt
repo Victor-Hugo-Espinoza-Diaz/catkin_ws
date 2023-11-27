@@ -48,16 +48,17 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
-## Generate messages in the 'msg' folder
+## Generar servicios en la carpeta 'msg'.
 add_message_files(
-   FILES
-   Num.msg
+  FILES
+  Num.msg
+  MyCustomMessageType.msg
 )
 
-## Generate services in the 'srv' folder
+## Generar servicios en la carpeta 'srv'.
 add_service_files(
-   FILES
-   AddTwoInts.srv
+  FILES
+  AddTwoInts.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -67,11 +68,11 @@ add_service_files(
 #   Action2.action
 # )
 
-## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+## Generar mensajes y servicios adicionales con todas las dependencias enumeradas aquí.
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -218,3 +219,30 @@ add_executable(demo_topic_subscriber src/demo_topic_subscriber.cpp)
 #This will link executables to the appropriate libraries
 target_link_libraries(demo_topic_publisher ${catkin_LIBRARIES})
 target_link_libraries(demo_topic_subscriber ${catkin_LIBRARIES})
+
+#####################################################################
+
+#ESTE EJECUTABLE ES PARA EL NODO SERVICIO (add_two_ints_server)
+add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
+add_dependencies(add_two_ints_server beginner_tutorials_gencpp)
+
+#ESTE EJECUTABLE ES PARA EL NODO CLIENTE(add_two_ints_client)
+add_executable(add_two_ints_client src/add_two_ints_client.cpp)
+target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
+add_dependencies(add_two_ints_client beginner_tutorials_gencpp)
+
+#####################################################################
+
+#ESTE EJECUTABLE ES PARA EL NODO MENSAJE (talker_custom_msg)
+add_executable(talker_custom_msg src/talker_custom_msg.cpp)
+target_link_libraries(talker_custom_msg ${catkin_LIBRARIES})
+add_dependencies(talker_custom_msg beginner_tutorials_generate_messages_cpp)
+
+#ESTE EJECUTABLE ES PARA EL NODO MENSAJE(listener_custom_msg)
+add_executable(listener_custom_msg src/listener_custom_msg.cpp)
+target_link_libraries(listener_custom_msg ${catkin_LIBRARIES})
+add_dependencies(listener_custom_msg beginner_tutorials_generate_messages_cpp)
+
+#####################################################################
+

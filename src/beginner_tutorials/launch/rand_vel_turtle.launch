@@ -1,0 +1,19 @@
+<launch>
+  <!--Inicia el nodo turtlesim con respawn habilitado -->
+  <node
+    pkg="turtlesim"
+    type="turtlesim_node"
+    name="turtlesim"
+    respawn="true"
+  />
+
+  <!--Inicia el nodo pubvel del paquete beginner_tutorials 
+  con un prefijo de lanzamiento xterm -->
+  <node
+    pkg="beginner_tutorials"
+    type="pubvel"
+    name="pubvel"
+    required="true"
+    launch-prefix="xterm -e"
+  />
+</launch>

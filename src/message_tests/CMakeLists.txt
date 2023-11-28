@@ -49,3 +49,14 @@ target_link_libraries(pubvel_toggle ${catkin_LIBRARIES})
 # -----------------------PARA EL NODO spawn_turtle.cpp-----------------------------
 add_executable(spawn_turtle src/spawn_turtle.cpp)
 target_link_libraries(spawn_turtle ${catkin_LIBRARIES})
+
+#####################################################################
+
+# -----------------------PARA EL NODO spawn_turtle_plus.cpp-----------------------------
+add_executable(spawn_turtle_plus src/spawn_turtle_plus.cpp)
+target_link_libraries(spawn_turtle_plus ${catkin_LIBRARIES})
+add_dependencies(spawn_turtle_plus ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+# -----------------------PARA EL NODO improved_pubvel_toggle.cpp-----------------------------
+add_executable(improved_pubvel_toggle src/improved_pubvel_toggle.cpp)
+target_link_libraries(improved_pubvel_toggle ${catkin_LIBRARIES})
+add_dependencies(improved_pubvel_toggle ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})

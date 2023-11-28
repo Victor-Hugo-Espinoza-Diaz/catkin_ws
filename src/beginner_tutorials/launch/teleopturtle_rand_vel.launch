@@ -1,0 +1,15 @@
+<launch>
+  <!-- Argumento para determinar si usar velocidades aleatorias -->
+  <arg name="use_random_vel" default="false" />
+
+  <!-- Inicia el nodo turtlesim con respawn habilitado -->
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" respawn="true" />
+
+  <!-- Inicia el nodo pubvel del paquete beginner_tutorials con un prefijo de lanzamiento xterm 
+       solo si el argumento use_random_vel es true -->
+  <node pkg="beginner_tutorials" type="pubvel" name="pubvel" required="true" launch-prefix="xterm -e" if="$(arg use_random_vel)" />
+
+  <!-- Inicia el nodo turtle_teleop_key del paquete turtlesim con un prefijo de lanzamiento xterm 
+       solo si el argumento use_random_vel es false -->
+  <node pkg="turtlesim" type="turtle_teleop_key" name="teleop_key" required="true" launch-prefix="xterm -e" unless="$(arg use_random_vel)" />
+</launch>

@@ -1,6 +1,6 @@
 <launch>
-  <!-- Incluye el archivo teleopturtlesim.launch del paquete beginner_tutorials -->
-  <include file="$(find beginner_tutorials)/launch/teleopturtlesim.launch" />
+  <!-- Incluye el archivo rand_vel_turtle.launch del paquete beginner_tutorials -->
+  <include file="$(find beginner_tutorials)/launch/rand_vel_turtle.launch" />
 
   <!-- Inicia el nodo subpose del paquete beginner_tutorials -->
   <node

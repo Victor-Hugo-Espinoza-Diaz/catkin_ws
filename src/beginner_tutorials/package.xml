@@ -53,7 +53,6 @@
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
 
-
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
@@ -67,6 +66,9 @@
   <!-- DE LA PRACTICA 2: PEGAMOS ESTAS DOS DEPENCENCIAS (PARA EL EJERCICIO 1)-->
   <depend>geometry_msgs</depend>
   <depend>turtlesim</depend>
+
+  <build_depend>message_generation</build_depend>
+
 
 
   <!-- The export tag contains other, unspecified, tags -->

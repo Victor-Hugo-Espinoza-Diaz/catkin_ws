@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   geometry_msgs # AGREMAS ESTAS DOS DEPENDENCIAS (geometry_msgs - turtlesim.)
   #turtlesim     # DEL EJERCICIO 1.
+  #evaluation_ros_DIR # EJERCICIO 2 DEL EXAMEN
 )
 
 ## System dependencies are found with CMake's conventions
@@ -61,6 +62,7 @@ add_message_files(
 add_service_files(
   FILES
   AddTwoInts.srv
+  ComputeDistance.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -74,6 +76,7 @@ add_service_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
+  geometry_msgs
 )
 
 ################################################
@@ -108,7 +111,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES beginner_tutorials
-  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime 
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime turtlesim
 #  DEPENDS system_lib
 )
 
@@ -263,3 +266,19 @@ target_link_libraries(safe_zone_vel_publisher ${catkin_LIBRARIES})
 add_executable(smart_turtle src/smart_turtle.cpp)
 target_link_libraries(smart_turtle ${catkin_LIBRARIES})
 #####################################################################
+
+# PARA EL (EJERCICIO 1) del Examen
+# -----------------------PARA EL NODO move_second_turtle.cpp-----------------------------
+add_executable(move_second_turtle src/move_second_turtle.cpp)
+target_link_libraries(move_second_turtle ${catkin_LIBRARIES})
+add_dependencies(move_second_turtle ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
+# PARA EL (EJERCICIO 2) del Examen
+# -----------------------PARA EL NODO distance_checker_plus.cpp-----------------------------
+add_executable(distance_checker_plus src/distance_checker_plus.cpp)
+target_link_libraries(distance_checker_plus ${catkin_LIBRARIES})
+add_dependencies(distance_checker_plus ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+# -----------------------PARA EL NODO distance_observer.cpp-----------------------------
+add_executable(distance_observer src/distance_observer.cpp)
+target_link_libraries(distance_observer ${catkin_LIBRARIES})
+add_dependencies(distance_observer ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})

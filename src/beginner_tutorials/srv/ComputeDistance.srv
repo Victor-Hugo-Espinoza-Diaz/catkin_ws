@@ -1,0 +1,8 @@
+# Servicio para calcular la distancia euclidiana entre dos puntos (que representan tortugas)
+float64 x1
+float64 y1
+float64 x2
+float64 y2
+---
+# Respuesta
+float64 distance
